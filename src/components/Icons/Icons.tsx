@@ -1,19 +1,6 @@
-// React
-import {MouseEvent} from 'react';
-
 // Types
-import {iconsPath} from './Icons.path';
-
-type IconName = keyof typeof iconsPath;
-
-interface IconProps {
-  size?: string | number;
-  name: IconName;
-  className?: string;
-  color?: string;
-  onClick?: (value?: MouseEvent<SVGSVGElement>) => void;
-  disabled?: boolean;
-}
+import { IconProps } from '../../types/components/icons';
+import { iconsPath } from './Icons.path';
 
 function Icon({
   size = 48,
@@ -30,16 +17,20 @@ function Icon({
       data-testid={`icon-${name}`}
       onClick={onClick}
       role="icon"
-      style={{width: size, height: size}}
+      style={{ width: size, height: size }}
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
     >
       {iconsPath[name]?.map((path, idx) => (
-        <path d={path} fillRule="evenodd" key={`path-${idx}`} style={{fill: color}} />
+        <path
+          d={path}
+          fillRule="evenodd"
+          key={`path-${idx}`}
+          style={{ fill: color }}
+        />
       ))}
     </svg>
   );
 }
 
-export type {IconName, IconProps};
 export default Icon;

@@ -12,6 +12,7 @@ import { validateEmail, validatePassword } from '../../utils/validation';
 
 //Context Provider
 import { useTranslation } from '../../providers/TranslationProvider';
+import Button from '../../components/Button/Button';
 
 const Login = () => {
   const { translate: t, changeLanguage, language } = useTranslation();
@@ -118,6 +119,13 @@ const Login = () => {
               <Switch label={t('rememberMe')} name="remember-me" />
             </div>
           </div>
+          <Button
+            disabled={!email || !password}
+            text={t('login')}
+            variant="secondary"
+            rounded="md"
+            onClick={() => console.log('Log In Clicked')}
+          />
         </div>
       </div>
     </div>
