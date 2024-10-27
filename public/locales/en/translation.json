@@ -1,0 +1,14 @@
+{
+  "login": "Log In",
+  "email": "Email:",
+  "password": "Password:",
+  "forgotPassword": "Forgot Password",
+  "language": "Language:",
+  "rememberMe": "Remember Me",
+  "requiredEmail": "Email is required",
+  "validEmail": "Please enter a valid email address.",
+  "publicEmail": "Public email addresses are not allowed.",
+  "corporateEmail": "Only corporate email addresses are allowed.",
+  "requiredPassword": "Password is required.",
+  "passwordStrength": "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character."
+}

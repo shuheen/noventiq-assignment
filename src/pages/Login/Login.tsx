@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { BaseSyntheticEvent, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //Components
@@ -23,18 +23,16 @@ const Login = () => {
   const [password, setPassword] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
 
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+
   const handleShowPassword = () => setShowPassword(!showPassword);
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
-    const error = validateEmail(value);
-    setEmailError(error);
   };
 
   const handlePasswordChange = (value: string) => {
     setPassword(value);
-    const error = validatePassword(value);
-    setPasswordError(error);
   };
 
   const languageOptions = useMemo(
@@ -44,6 +42,29 @@ const Login = () => {
     ],
     []
   );
+
+  const handleRememberMe = (event: BaseSyntheticEvent) => {
+    setRememberMe(event.target.checked);
+  };
+
+  const handleLogin = () => {
+    const errorEmail = validateEmail(email);
+    setEmailError(errorEmail);
+    const errorPassword = validatePassword(password);
+    setPasswordError(errorPassword);
+
+    if (errorEmail || errorPassword) {
+      return;
+    }
+
+    const formData = new FormData();
+
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('rememberMe', rememberMe.toString());
+
+    // Further it can be sent to server with axios
+  };
 
   return (
     <div className="bg-[#E8ECF1]">
@@ -116,7 +137,13 @@ const Login = () => {
             </div>
 
             <div className="ml-0 sm:ml-[132px]">
-              <Switch label={t('rememberMe')} name="remember-me" />
+              <Switch
+                label={t('rememberMe')}
+                onChange={(event: BaseSyntheticEvent) =>
+                  handleRememberMe(event)
+                }
+                name="remember-me"
+              />
             </div>
           </div>
           <Button
@@ -124,7 +151,7 @@ const Login = () => {
             text={t('login')}
             variant="secondary"
             rounded="md"
-            onClick={() => console.log('Log In Clicked')}
+            onClick={handleLogin}
           />
         </div>
       </div>
