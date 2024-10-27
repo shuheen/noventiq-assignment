@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useMemo, useState } from 'react';
+import React, { BaseSyntheticEvent, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //Components
@@ -50,9 +50,9 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    const errorEmail = validateEmail(email);
+    const errorEmail = validateEmail(email, t);
     setEmailError(errorEmail);
-    const errorPassword = validatePassword(password);
+    const errorPassword = validatePassword(password, t);
     setPasswordError(errorPassword);
 
     if (errorEmail || errorPassword) {
@@ -139,7 +139,11 @@ const Login = () => {
                 name="language"
                 options={languageOptions}
                 selected={language}
-                onChange={(value) => changeLanguage(value)}
+                onChange={(value) => {
+                  changeLanguage(value);
+                  validateEmail(email, t);
+                  validatePassword(password, t);
+                }}
               />
             </div>
 

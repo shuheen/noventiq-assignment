@@ -1,39 +1,48 @@
+import { TranslationKeys } from '../types/translation';
+
 const publicEmailDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
 const corporateDomainRegex = /@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 
-const validateEmail = (email: string) => {
+const validateEmail = (
+  email: string,
+  translate: (key: TranslationKeys) => string
+) => {
   if (!email) {
-    return 'Email is required';
+    return translate('requiredEmail');
   }
+  console.log(translate('validEmail'));
   // Check if email is in a valid format
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
-    return 'Please enter a valid email address.';
+    return translate('validEmail');
   }
 
   // Check if email is from a corporate domain (e.g., noventiq.com)
   const domain = email.split('@')[1];
   if (publicEmailDomains.includes(domain)) {
-    return 'Public email addresses are not allowed.';
+    return translate('publicEmail');
   }
 
   // Check if email has a corporate domain format
   if (!corporateDomainRegex.test(email)) {
-    return 'Only corporate email addresses are allowed.';
+    return translate('corporateEmail');
   }
 
   return ''; // No errors
 };
 
-const validatePassword = (password: string) => {
+const validatePassword = (
+  password: string,
+  translate: (key: TranslationKeys) => string
+) => {
   if (!password) {
-    return 'Password is required.';
+    return translate('requiredPassword');
   }
 
   const passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordPattern.test(password)) {
-    return 'Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.';
+    return translate('passwordStrength');
   }
 
   return ''; // No errors

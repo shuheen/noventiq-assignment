@@ -6,6 +6,13 @@ export type TranslationKeys =
   | 'language'
   | 'rememberMe'
   | 'emailPlaceholder'
-  | 'passwordPlaceholder';
+  | 'requiredEmail'
+  | 'passwordPlaceholder'
+  | 'validEmail'
+  | 'publicEmail'
+  | 'corporateEmail'
+  | 'requiredPassword'
+  | 'passwordStrength';
+ 
 
 export type Translations = Record<TranslationKeys, string>;
