@@ -10,7 +10,6 @@ const validateEmail = (
   if (!email) {
     return translate('requiredEmail');
   }
-  console.log(translate('validEmail'));
   // Check if email is in a valid format
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {

@@ -75,8 +75,8 @@ const Login = () => {
 
   return (
     <div className="bg-[#E8ECF1]">
-      <div className="h-screen max-w-screen-xl mx-auto">
-        <div className="w-full h-full flex items-center justify-center flex-col">
+      <div className="h-screen max-w-screen-xl mx-auto flex flex-col justify-between">
+        <div className="w-full flex-1 flex items-center justify-center flex-col">
           <img
             src="/static/images/noventiq-logo.png"
             className="w-[60%] mb-12"
@@ -165,6 +165,9 @@ const Login = () => {
             onClick={handleLogin}
           />
         </div>
+        <p className="text-xs text-black font-medium text-center py-4">
+          Copyright {new Date().getFullYear()} Noventiq | Powered by Noventiq
+        </p>
       </div>
     </div>
   );
