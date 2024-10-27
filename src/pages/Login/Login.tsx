@@ -65,6 +65,11 @@ const Login = () => {
     formData.append('password', password);
     formData.append('rememberMe', rememberMe.toString());
 
+    //Just for testing
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+
     // Further it can be sent to server with axios
   };
 
