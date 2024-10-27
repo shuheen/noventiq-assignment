@@ -1,7 +1,9 @@
 {
   "login": "ਲੌਗਿਨ",
   "email": "ਈਮੇਲ:",
+  "emailPlaceholder": "ਈਮੇਲ ਪਤਾ ਦਰਜ ਕਰੋ",
   "password": "ਪਾਸਵਰਡ:",
+  "passwordPlaceholder": "ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
   "forgotPassword": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ",
   "language": "ਭਾਸ਼ਾ:",
   "rememberMe": "ਮੈਨੂੰ ਯਾਦ ਰੱਖੋ",

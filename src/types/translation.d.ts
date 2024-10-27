@@ -4,6 +4,8 @@ export type TranslationKeys =
   | 'password'
   | 'forgotPassword'
   | 'language'
-  | 'rememberMe';
+  | 'rememberMe'
+  | 'emailPlaceholder'
+  | 'passwordPlaceholder';
 
 export type Translations = Record<TranslationKeys, string>;

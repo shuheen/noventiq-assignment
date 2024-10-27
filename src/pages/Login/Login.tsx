@@ -93,7 +93,7 @@ const Login = () => {
                 startIcon={
                   <Icon name="email" className="min-w-[24px]" size={24} />
                 }
-                placeholder="Enter Email Address"
+                placeholder={t('emailPlaceholder')}
                 error={emailError}
               />
             </div>
@@ -102,7 +102,7 @@ const Login = () => {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 label={t('password')}
-                placeholder="Enter Password"
+                placeholder={t('passwordPlaceholder')}
                 value={password}
                 onChange={(value) => handlePasswordChange(value)}
                 error={passwordError}
