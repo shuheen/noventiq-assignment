@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //Components
 import InputText from '../../components/InputText/InputText';
 import Icon from '../../components/Icons/Icons';
+import Select from '../../components/Select/Select';
+
+//Utils
 import { validateEmail, validatePassword } from '../../utils/validation';
 
+//Context Provider
+import { useTranslation } from '../../providers/TranslationProvider';
+
 const Login = () => {
+  const { translate: t, changeLanguage, language } = useTranslation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
 
   const [password, setPassword] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
+
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(
+    navigator.language
+  );
 
   const handleShowPassword = () => setShowPassword(!showPassword);
 
@@ -27,6 +38,19 @@ const Login = () => {
     const error = validatePassword(value);
     setPasswordError(error);
   };
+
+  const languageOptions = useMemo(
+    () => [
+      { label: 'English', value: 'en' },
+      { label: 'हिंदी', value: 'hi' },
+    ],
+    []
+  );
+
+  const handleLanguageChange = (value: string) => {
+    setSelectedLanguage(value);
+  };
+
   return (
     <div className="bg-[#E8ECF1]">
       <div className="h-screen max-w-screen-xl mx-auto">
@@ -42,7 +66,7 @@ const Login = () => {
                 type="text"
                 name="email"
                 value={email}
-                label="Email"
+                label={t('email')}
                 onChange={(value) => handleEmailChange(value)}
                 startIcon={
                   <Icon name="email" className="min-w-[24px]" size={24} />
@@ -55,7 +79,7 @@ const Login = () => {
               <InputText
                 type={showPassword ? 'text' : 'password'}
                 name="password"
-                label="Password"
+                label={t('password')}
                 placeholder="Enter Password"
                 value={password}
                 onChange={(value) => handlePasswordChange(value)}
@@ -84,8 +108,17 @@ const Login = () => {
                 to="forgot-password"
                 className="text-xs font-medium underline ml-0 sm:ml-[132px]"
               >
-                Forgot Password?
+                {t('forgotPassword')}
               </Link>
+            </div>
+            <div className="mb-4">
+              <Select
+                label={t('language')}
+                name="language"
+                options={languageOptions}
+                selected={language}
+                onChange={(value) => changeLanguage(value)}
+              />
             </div>
           </div>
         </div>
