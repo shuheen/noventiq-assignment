@@ -39,6 +39,8 @@ const Login = () => {
     () => [
       { label: 'English', value: 'en' },
       { label: 'हिंदी', value: 'hi' },
+      { label: 'اردو', value: 'ur' },
+      { label: 'ਪੰਜਾਬੀ', value: 'pa' },
     ],
     []
   );

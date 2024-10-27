@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import en from './../locales/en/translation.json';
 import hi from './../locales/hi/translation.json';
+import ur from './../locales/ur/translation.json';
+import pa from './../locales/pa/translation.json';
 import { TranslationKeys, Translations } from './../types/translation';
 
 // Supported translations
-const translations: Record<string, Translations> = { en, hi };
+const translations: Record<string, Translations> = { en, hi, ur, pa };
 
 interface TranslationContextProps {
   translate: (key: TranslationKeys) => string;
