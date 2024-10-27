@@ -5,7 +5,7 @@ export interface InputTextProps
     CommonFormProps,
     'label' | 'name' | 'required' | 'onChange' | 'value' | 'placeholder'
   > {
-  type: 'text' | 'password';
+  type?: 'text' | 'password' | 'email';
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
   error?: string;

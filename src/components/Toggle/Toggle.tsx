@@ -1,6 +1,6 @@
-import { SwitchProps } from '../../types/components/switch';
+import { ToggleProps } from '../../types/components/switch';
 
-const Switch = ({ label, checked, name, onChange }: SwitchProps) => {
+const Toggle = ({ label, checked, name, onChange }: ToggleProps) => {
   return (
     <div className="flex gap-3">
       <label className="inline-flex items-center cursor-pointer">
@@ -20,4 +20,4 @@ const Switch = ({ label, checked, name, onChange }: SwitchProps) => {
   );
 };
 
-export default Switch;
+export default Toggle;

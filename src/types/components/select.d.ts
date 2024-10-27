@@ -1,8 +1,12 @@
 import {CommonFormProps} from './../common';
 
-interface SelectProps extends Pick<CommonFormProps, 'label' | 'name' | 'required' | 'onChange' | 'placeholder'> {
+interface SelectProps
+  extends Pick<
+    CommonFormProps,
+    'label' | 'name' | 'required' | 'onChange' | 'placeholder'
+  > {
   options: SelectOption[];
-  selected: string;
+  selected?: string;
 }
 
 interface SelectOption {

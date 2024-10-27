@@ -1,6 +1,6 @@
 interface CommonFormProps {
   label?: string;
-  required?: false;
+  required?: boolean;
   name: string;
   onChange?: (value: string) => void;
   placeholder?: string;

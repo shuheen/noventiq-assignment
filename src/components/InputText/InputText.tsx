@@ -2,8 +2,8 @@ import {InputTextProps} from '../../types/components/InputText';
 
 const InputText = ({
   label,
-  type,
-  required,
+  type = 'text',
+  required = false,
   name,
   onChange,
   startIcon,
@@ -14,7 +14,10 @@ const InputText = ({
 }: InputTextProps) => {
   return (
     <div className="flex flex-col gap-3 items-start justify-between sm:flex-row sm:items-center sm:justify-between">
-      <label htmlFor={name} className="font-bold text-md min-w-full sm:min-w-[120px]">
+      <label
+        htmlFor={name}
+        className="font-bold text-md min-w-full sm:min-w-[120px]"
+      >
         {label}
       </label>
       <div className="flex flex-col flex-1 w-full items-start">
@@ -25,6 +28,7 @@ const InputText = ({
         >
           {startIcon!}
           <input
+            id={name}
             className="text-black text-md flex-1 py-2 outline-none bg-white max-w-[65%] sm:max-w-[75%] md:max-w-[80%]"
             type={type}
             value={value}
@@ -35,7 +39,9 @@ const InputText = ({
           />
           {endIcon!}
         </div>
-        {error && <span className="text-sm text-red-500 font-medium">{error}</span>}
+        {error && (
+          <span className="text-sm text-red-500 font-medium">{error}</span>
+        )}
       </div>
     </div>
   );

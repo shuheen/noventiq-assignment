@@ -1,5 +1,4 @@
 import { SelectOption, SelectProps } from '../../types/components/select';
-import './select.css';
 
 const Select = ({
   name,

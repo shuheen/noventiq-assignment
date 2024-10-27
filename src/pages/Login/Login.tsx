@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 //Components
 import InputText from '../../components/InputText/InputText';
-import Icon from '../../components/Icons/Icons';
+import Icon from '../../components/Icons/Icon';
 import Select from '../../components/Select/Select';
-import Switch from '../../components/Switch/Switch';
+import Switch from '../../components/Toggle/Toggle';
 
 //Utils
 import { validateEmail, validatePassword } from '../../utils/validation';
@@ -85,7 +85,7 @@ const Login = () => {
           <div className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:w-[40%] min-h-[100px] border border-black bg-white p-6">
             <div className="mb-4">
               <InputText
-                type="text"
+                type="email"
                 name="email"
                 value={email}
                 label={t('email')}

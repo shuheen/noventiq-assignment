@@ -2,7 +2,7 @@
 import { IconProps } from '../../types/components/icons';
 import { iconsPath } from './Icons.path';
 
-function Icon({
+const Icon = ({
   size = 48,
   name,
   className = '',
@@ -10,7 +10,7 @@ function Icon({
   onClick = () => {
     /* emtpy */
   },
-}: Readonly<IconProps>) {
+}: Readonly<IconProps>) => {
   return (
     <svg
       className={className}
@@ -31,6 +31,6 @@ function Icon({
       ))}
     </svg>
   );
-}
+};
 
 export default Icon;
