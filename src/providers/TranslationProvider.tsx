@@ -23,7 +23,9 @@ interface TranslationProviderProps {
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<string>('en'); // default language
+  const [language, setLanguage] = useState<string>(
+    navigator.language.split('-')[0] || 'en'
+  ); // Default Language from Browser or set english as default
 
   const translate = (key: TranslationKeys): string =>
     translations[language][key] || key;
