@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import InputText from '../../components/InputText/InputText';
 import Icon from '../../components/Icons/Icons';
 import Select from '../../components/Select/Select';
+import Switch from '../../components/Switch/Switch';
 
 //Utils
 import { validateEmail, validatePassword } from '../../utils/validation';
@@ -20,10 +21,6 @@ const Login = () => {
 
   const [password, setPassword] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
-
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(
-    navigator.language
-  );
 
   const handleShowPassword = () => setShowPassword(!showPassword);
 
@@ -46,10 +43,6 @@ const Login = () => {
     ],
     []
   );
-
-  const handleLanguageChange = (value: string) => {
-    setSelectedLanguage(value);
-  };
 
   return (
     <div className="bg-[#E8ECF1]">
@@ -119,6 +112,10 @@ const Login = () => {
                 selected={language}
                 onChange={(value) => changeLanguage(value)}
               />
+            </div>
+
+            <div className="ml-0 sm:ml-[132px]">
+              <Switch label={t('rememberMe')} name="remember-me" />
             </div>
           </div>
         </div>
